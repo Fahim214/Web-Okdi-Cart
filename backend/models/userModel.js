@@ -38,6 +38,6 @@ UserSchema.pre("save", async function(next) {
     this.password = hash
 })
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model("User", UserSchema)
 
 export default User

@@ -3,6 +3,9 @@ import dotenv from "dotenv"
 import morgan from "morgan"
 import cors from "cors"
 import connectDatabase from "./config/db.js"
+import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
+
+import productRoutes from "./routes/productRoutes.js"
 
 const app = express()
 
@@ -17,6 +20,11 @@ if(process.env.NODE_ENV === "development") {
     app.use(morgan("dev"))
 }
 
+// Routes
+app.use("/api/products", productRoutes)
+
+app.use(notFound)
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5500
 
