@@ -1,0 +1,47 @@
+import React, { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
+import Message from "../components/Message";
+import Paginate from "../components/Paginate";
+import Product from "../components/Product"
+import { listProduct } from "../redux/actions/productActions";
+
+const HomeScreen = () => {
+  let params = useParams();
+  const keyword = params.keyword;
+  const pageNumber = params.pageNumber || 1;
+  const dispatch = useDispatch();
+
+  const productList = useSelector((state) => state.productList);
+
+  const { products, loading, error, page, pages } = productList;
+
+  useEffect(() => {
+    dispatch(listProduct(keyword, pageNumber));
+  }, [dispatch, keyword, pageNumber]);
+  return (
+    <div>
+      <Container fluid style={{ width: "93%", marginTop: 55}}>
+        <h3>Product Terlaris</h3>
+        <Row>
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            products.map((product, index) => (
+              <Col sm={6} md={6} lg={4} xl={2}>
+                  <Product product={product} key={index} />
+              </Col>
+            ))
+          )}
+        </Row>
+        <Paginate page={page} pages={pages} keyword={keyword ? keyword : ""} />
+      </Container>
+    </div>
+  );
+};
+
+export default HomeScreen;
