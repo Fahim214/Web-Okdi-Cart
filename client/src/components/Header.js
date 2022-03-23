@@ -6,6 +6,7 @@ import { logout } from "../redux/actions/userActions";
 // import SearchBox from "./SearchBox";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
+import TopHeader from "./TopHeader";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,8 +21,9 @@ const Header = () => {
   };
   return (
     <header>
+      <TopHeader />
       <Navbar expand="lg" style={{ backgroundColor: "blue", marginBottom: 20 }}>
-        <Container fluid style={{ height: 60, width: "95%", color: "black" }}>
+        <Container fluid style={{ height: 60, width: "94%", color: "black" }}>
           <Link to="/">
             <Navbar.Brand>
               <b>Shop Cart</b>
