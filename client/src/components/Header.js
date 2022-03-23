@@ -7,6 +7,8 @@ import { logout } from "../redux/actions/userActions";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import TopHeader from "./TopHeader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faShoppingCart} from "@fortawesome/free-solid-svg-icons"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -38,7 +40,10 @@ const Header = () => {
               navbarScroll
             ></Nav>
             <LinkContainer to="/cart">
-              <Nav.Link>Cart</Nav.Link>
+              <Nav.Link>
+                <FontAwesomeIcon className="mx-1" icon={faShoppingCart} />
+                Cart
+              </Nav.Link>
             </LinkContainer>
             {userInfo ? (
               <>
