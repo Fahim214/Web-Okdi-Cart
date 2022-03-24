@@ -8,12 +8,14 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import TopHeader from "./TopHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faShoppingCart} from "@fortawesome/free-solid-svg-icons"
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
+
+  const { cartItems } = useSelector((state) => state.cart);
 
   const { userInfo } = userLogin;
 
@@ -41,8 +43,12 @@ const Header = () => {
             ></Nav>
             <LinkContainer to="/cart">
               <Nav.Link>
-                <FontAwesomeIcon className="mx-1" icon={faShoppingCart} />
-                Cart
+                {cartItems.length > 0 && (
+                  <div style={{fontSize: 14, paddingTop: 5}}>
+                    {cartItems.length}
+                  </div>
+                )}
+                <FontAwesomeIcon style={{fontSize: 20, marginBottom: 20}} className="mx-1" icon={faShoppingCart} />
               </Nav.Link>
             </LinkContainer>
             {userInfo ? (
