@@ -19,20 +19,24 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  const productDetails = useSelector((state) => state.productDetails)
+  const productDetails = useSelector((state) => state.productDetails);
 
-  const { product } = productDetails
+  const { product } = productDetails;
 
   const checkoutHandler = () => {
     navigate("/login?redirect=shipping");
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
       <Container>
-        <Link className="btn btn-light my-3" to={`/product/${product._id}`}>
+        <Button className="btn btn-light my-3" onClick={handleBack}>
           Go Back
-        </Link>
+        </Button>
         <Row>
           <h2 className="mb-4">Shopping Cart</h2>
           {cartItems.length === 0 ? (

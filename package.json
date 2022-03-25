@@ -11,7 +11,7 @@
     "import:data": "node backend/seeder"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fahmi Oktafian",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

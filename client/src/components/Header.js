@@ -30,7 +30,7 @@ const Header = () => {
         <Container fluid style={{ height: 60, width: "94%", color: "black" }}>
           <Link to="/">
             <Navbar.Brand>
-              <b>Shop Cart</b>
+              <b>Okdi Food</b>
             </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -44,11 +44,11 @@ const Header = () => {
             <LinkContainer to="/cart">
               <Nav.Link>
                 {cartItems.length > 0 && (
-                  <div style={{fontSize: 14, paddingTop: 5}}>
+                  <div style={{fontSize: 15, marginTop: -25, position: "absolute", backgroundColor: "red", borderRadius: "50%",padding: 4}}>
                     {cartItems.length}
                   </div>
                 )}
-                <FontAwesomeIcon style={{fontSize: 20, marginBottom: 20}} className="mx-1" icon={faShoppingCart} />
+                <FontAwesomeIcon style={{fontSize: 20}} className="mx-1" icon={faShoppingCart} />
               </Nav.Link>
             </LinkContainer>
             {userInfo ? (
