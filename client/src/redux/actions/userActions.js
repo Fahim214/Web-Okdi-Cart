@@ -9,7 +9,7 @@ export const login = (email, password) => async (dispatch) => {
 
         const config = {
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
         }
 
@@ -70,6 +70,38 @@ export const register = (name, email, password) => async (dispatch) => {
             payload: error.response && error.response.data.message
             ? error.response.data.message
             : error.message
+        })
+    }
+}
+
+
+// Action Update Profile
+export const updateProfile = (user) => async (dispatch, getState)=> {
+    try {
+        dispatch({ type: actions.USER_UPDATE_PROFILE_REQUEST })
+
+        const {
+            userLogin : {userInfo},
+        } = getState()
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${userInfo.token}`
+            }
+        }
+
+        const { data } = await axios.put("/api/users/profile", user, config)
+
+        dispatch({ type: actions.USER_UPDATE_PROFILE_SUCCESS, payload: data.user})
+        localStorage.setItem("userInfo", JSON.stringify(data.user))
+    } catch (error) {
+        dispatch({
+            type: actions.USER_UPDATE_PROFILE_FAIL,
+            payload: 
+                error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
         })
     }
 }

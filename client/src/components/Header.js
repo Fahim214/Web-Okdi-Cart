@@ -10,6 +10,8 @@ import TopHeader from "./TopHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
+// import "../screens/style.scss";
+
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,11 +46,24 @@ const Header = () => {
             <LinkContainer to="/cart">
               <Nav.Link>
                 {cartItems.length > 0 && (
-                  <div style={{fontSize: 15, marginTop: -25, position: "absolute", backgroundColor: "red", borderRadius: "50%",padding: 4}}>
+                  <div
+                    style={{
+                      fontSize: 15,
+                      marginTop: -25,
+                      position: "absolute",
+                      backgroundColor: "red",
+                      borderRadius: "50%",
+                      padding: 4,
+                    }}
+                  >
                     {cartItems.length}
                   </div>
                 )}
-                <FontAwesomeIcon style={{fontSize: 20}} className="mx-1" icon={faShoppingCart} />
+                <FontAwesomeIcon
+                  style={{ fontSize: 20 }}
+                  className="mx-1"
+                  icon={faShoppingCart}
+                />
               </Nav.Link>
             </LinkContainer>
             {userInfo ? (

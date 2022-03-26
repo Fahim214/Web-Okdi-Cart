@@ -53,3 +53,31 @@ export const userRegisterReducer = (state = {}, action) => {
       return state;
   }
 }
+
+
+// Update Profile Reducer
+export const userUpdateProfileReducer = (state = {}, action) => {
+  switch (action.type) {
+    case actions.USER_UPDATE_PROFILE_REQUEST:
+      return{
+        ...state,
+        loading: true
+      }
+    case actions.USER_UPDATE_PROFILE_SUCCESS:
+      return{
+        ...state,
+        loading: false,
+        error: null,
+        successUpdate: true,
+        user: action.payload
+      }
+    case actions.USER_UPDATE_PROFILE_FAIL:
+      return{
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    default:
+      return state;
+  }
+}

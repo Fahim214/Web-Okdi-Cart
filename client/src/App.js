@@ -10,6 +10,8 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddress from "./screens/ShippingAddress";
 import PlaceOrder from "./screens/PlaceOrder"
 import OrderScreen from "./screens/OrderScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import SidebarScreen from "./screens/SidebarScreen";
 
 function App() {
   return (
@@ -28,6 +30,12 @@ function App() {
             path="/search/:keyword/page/:pageNumber"
             element={<HomeScreen />}
           />
+
+          <Route path="/dashboard" element={<SidebarScreen />} />
+
+          <Route path="/profile" element={<ProtectedRoute />}>
+            <Route path="/profile" element={<ProfileScreen />} />
+          </Route>
 
           <Route path="/shipping" element={<ProtectedRoute />}>
             <Route path="/shipping" element={<ShippingAddress />} />
