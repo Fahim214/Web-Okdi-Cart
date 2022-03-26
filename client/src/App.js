@@ -15,6 +15,7 @@ import SidebarScreen from "./screens/SidebarScreen";
 import OnlyAdmin from "./components/OnlyAdmin";
 import ProductListScreen from "./screens/ProductListScreen";
 import UserListScreen from "./screens/UserListScreen";
+import UserEditScreen from "./screens/UserEditScreen";
 // import ListOrderUser from "./screens/ListOrderUser";
 
 function App() {
@@ -63,6 +64,10 @@ function App() {
 
           <Route path="/admin/users" element={<OnlyAdmin />} >
             <Route path="/admin/users" element={<UserListScreen />} />
+          </Route>
+
+          <Route path="/admin/users/edit/:id" element={<OnlyAdmin />} >
+            <Route path="/admin/users/edit/:id" element={<UserEditScreen />} />
           </Route>
 
           <Route path="/admin/products" element={<OnlyAdmin />}>

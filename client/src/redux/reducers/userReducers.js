@@ -55,6 +55,32 @@ export const userRegisterReducer = (state = {}, action) => {
 }
 
 
+// User Detail reducer
+export const userDetailsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case actions.USER_DETAIL_REQUEST:
+      return{
+        ...state,
+        loading: true
+      }
+    case actions.USER_DETAIL_SUCCESS:
+      return{
+        ...state,
+        loading: false,
+        user: action.payload
+      }
+    case actions.USER_DETAIL_FAIL:
+      return{
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    default:
+      return state;
+  }
+}
+
+
 // Update Profile Reducer
 export const userUpdateProfileReducer = (state = {}, action) => {
   switch (action.type) {
@@ -129,6 +155,32 @@ export const userDeleteReducer = (state = {}, action) => {
         success: true
       }
     case actions.USER_DELETE_FAIL:
+      return{
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    default:
+      return state;
+  }
+}
+
+
+// User Update Reducer
+export const userUpdateReducer = (state = {}, action) => {
+  switch (action.payload) {
+    case actions.USER_UPDATE_REQUEST:
+      return{
+        ...state,
+        loading: true
+      }
+    case actions.USER_UPDATE_SUCCESS:
+      return{
+        ...state,
+        loading: false,
+        success: true
+      }
+    case actions.USER_UPDATE_FAIL:
       return{
         ...state,
         loading: false,

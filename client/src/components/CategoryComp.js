@@ -67,7 +67,7 @@ const CategoryComp = () => {
 
   return (
     <div>
-        <Container fluid style={{width: "90%", marginTop: 60, textAlign: "center"}}>
+        <Container fluid style={{width: "93%", marginTop: 60, textAlign: "center"}}>
             <Row style={{justifyContent: "center"}}>
             <Slider {...settings}>
                 {categ.map(cate => (

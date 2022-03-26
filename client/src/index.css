@@ -79,3 +79,12 @@ header .navbar-light .navbar-nav .nav-link:hover{
   color: #fd7e14;
   text-decoration: none;
 }
+
+
+.bg{
+  background-image: linear-gradient(-135deg, rgb(136, 196, 231), rgb(67, 137, 181), rgb(3, 94, 169));
+}
+
+.bg h3,h2,h6{
+  color: white;
+}

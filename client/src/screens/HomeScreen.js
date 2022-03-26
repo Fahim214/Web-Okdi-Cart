@@ -25,7 +25,7 @@ const HomeScreen = () => {
   return (
     <div>
       <BannerScreen />
-      <Container fluid style={{ width: "93%", marginTop: 35 }}>
+      <Container fluid style={{ width: "93%", marginTop: 60 }}>
         <Row>
           <Col md={10}>
             <h3 style={{paddingBottom: 17}}>Product Terlaris</h3>

@@ -10,6 +10,8 @@ import Message from "../components/Message";
 import { Link } from "react-router-dom";
 import CategoryScreen from "./CategoryScreen"
 import CategoryComp from "../components/CategoryComp";
+import PromoComp from "../components/PromoComp";
+import FlashDealComp from "../components/FlashDealComp";
 
 const BannerScreen = () => {
 
@@ -81,6 +83,8 @@ const BannerScreen = () => {
         </Row>
       </Container>
       <CategoryComp />
+      <PromoComp />
+      <FlashDealComp />
     </div>
   );
 };

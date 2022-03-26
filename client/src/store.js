@@ -16,10 +16,12 @@ import {
 } from "./redux/reducers/productReducers";
 import {
   userDeleteReducer,
+  userDetailsReducer,
   userListReducer,
   userLoginReducer,
   userRegisterReducer,
   userUpdateProfileReducer,
+  userUpdateReducer,
 } from "./redux/reducers/userReducers";
 
 const rootReducers = combineReducers({
@@ -29,6 +31,8 @@ const rootReducers = combineReducers({
   userUpdateProfile: userUpdateProfileReducer,
   userList: userListReducer,
   userDelete: userDeleteReducer,
+  userDetail: userDetailsReducer,
+  userUpdate: userUpdateReducer,
   productDetails: productDetailsReducer,
   productDelete: productDeleteReducer,
   productReviewCreate: productReviewCreateReducer,
