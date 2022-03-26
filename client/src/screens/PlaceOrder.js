@@ -1,8 +1,17 @@
 import React, { useEffect } from "react";
-import { Button, Card, Col, Container, Image, ListGroup, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Image,
+  ListGroup,
+  Row,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Message from "../components/Message";
+import { removeFromCart } from "../redux/actions/cartActions";
 import { createOrder } from "../redux/actions/orderAction";
 
 const PlaceOrder = () => {
@@ -30,12 +39,6 @@ const PlaceOrder = () => {
     Number(cart.taxPrice)
   ).toFixed(2);
 
-  useEffect(() => {
-    if (success) {
-      navigate(`/order/${order._id}`);
-    }
-  }, [dispatch, success, order?._id, navigate]);
-
   const placeOrderHandler = () => {
     dispatch(
       createOrder({
@@ -48,6 +51,12 @@ const PlaceOrder = () => {
       })
     );
   };
+
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`);
+    }
+  }, [dispatch, success, order?._id, navigate]);
 
   return (
     <div>
@@ -114,34 +123,37 @@ const PlaceOrder = () => {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                      <Col>Items</Col>
-                      <Col>${cart.itemsPrice}</Col>
+                    <Col>Items</Col>
+                    <Col>${cart.itemsPrice}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                      <Col>Shipping</Col>
-                      <Col>${cart.shippingPrice}</Col>
+                    <Col>Shipping</Col>
+                    <Col>${cart.shippingPrice}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                      <Col>Tax</Col>
-                      <Col>${cart.taxPrice}</Col>
+                    <Col>Tax</Col>
+                    <Col>${cart.taxPrice}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                      <Col>Total</Col>
-                      <Col>${cart.totalPrice}</Col>
+                    <Col>Total</Col>
+                    <Col>${cart.totalPrice}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Button
-                  className="w-100"
-                  variant="primary"
-                  onClick={placeOrderHandler}
-                  >PLACE ORDER</Button>
+                    className="w-100"
+                    variant="primary"
+                    disabled={cart.cartItems.length === 0}
+                    onClick={placeOrderHandler}
+                  >
+                    PLACE ORDER
+                  </Button>
                 </ListGroup.Item>
               </ListGroup>
             </Card>

@@ -59,6 +59,32 @@ export const productDetailsReducer = (
 }
 
 
+// Prduct Delete Reducer
+export const productDeleteReducer = (state = {}, action) => {
+    switch (action.type) {
+        case actions.PRODUCT_DELETE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case actions.PRODUCT_DELETE_SUCCESS:
+            return{
+                ...state,
+                loading: false,
+                success: true
+            }
+        case actions.PRODUCT_DELETE_FAIL:
+            return{
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state;
+    }
+}
+
+
 // Membuat create review produk
 export const productReviewCreateReducer = (state = {}, action) => {
     switch (action.type) {

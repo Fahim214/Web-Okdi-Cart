@@ -12,6 +12,9 @@ import PlaceOrder from "./screens/PlaceOrder"
 import OrderScreen from "./screens/OrderScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import SidebarScreen from "./screens/SidebarScreen";
+import OnlyAdmin from "./components/OnlyAdmin";
+import ProductListScreen from "./screens/ProductListScreen";
+// import ListOrderUser from "./screens/ListOrderUser";
 
 function App() {
   return (
@@ -37,6 +40,10 @@ function App() {
             <Route path="/profile" element={<ProfileScreen />} />
           </Route>
 
+          {/* <Route path="/orderlist" element={<ProtectedRoute />}>
+            <Route path="/orderlist" element={<ListOrderUser />} />
+          </Route> */}
+
           <Route path="/shipping" element={<ProtectedRoute />}>
             <Route path="/shipping" element={<ShippingAddress />} />
           </Route>
@@ -51,6 +58,11 @@ function App() {
 
           <Route path="/order/:id" element={<ProtectedRoute />}>
             <Route path="/order/:id" element={<OrderScreen />} />
+          </Route>
+
+          <Route path="/admin/products" element={<OnlyAdmin />}>
+            <Route path="/admin/products" element={<ProductListScreen />} />
+            <Route path="/admin/products/:pageNumber" element={<ProductListScreen />} />
           </Route>
         </Routes>
       </BrowserRouter>

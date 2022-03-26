@@ -49,6 +49,43 @@ export const listProduct =
   }
 
 
+  // Action delete product
+  export const deleteProduct = (id) => async (dispatch, getState) => {
+    try {
+      dispatch({ type: actions.PRODUCT_DELETE_REQUEST })
+
+      const {
+        userLogin: { userInfo },
+      } = getState()
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo.token}`
+        }
+      }
+
+      await axios.delete(`/api/products/${id}`, config)
+
+      dispatch({ type: actions.PRODUCT_DELETE_SUCCESS })
+    } catch (error) {
+      const message = 
+        error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+
+      if(message === "Not Authorized, no token") {
+        dispatch(logout())
+      }
+
+      dispatch({
+        type: actions.PRODUCT_DELETE_FAIL,
+        payload: message
+      })
+    }
+  }
+
+
   // Action create review product
   export const createProductReview = (productId, review) => async (dispatch, getState) => {
     try {

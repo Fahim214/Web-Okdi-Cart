@@ -9,6 +9,7 @@ import {
   orderPayReducer,
 } from "./redux/reducers/OrderReducers";
 import {
+  productDeleteReducer,
   productDetailsReducer,
   productListReducer,
   productReviewCreateReducer,
@@ -25,6 +26,7 @@ const rootReducers = combineReducers({
   userRegister: userRegisterReducer,
   userUpdateProfile: userUpdateProfileReducer,
   productDetails: productDetailsReducer,
+  productDelete: productDeleteReducer,
   productReviewCreate: productReviewCreateReducer,
   orderCreate: orderCreateReducer,
   orderDetail: orderDetailReducer,
