@@ -15,6 +15,8 @@ import {
   productReviewCreateReducer,
 } from "./redux/reducers/productReducers";
 import {
+  userDeleteReducer,
+  userListReducer,
   userLoginReducer,
   userRegisterReducer,
   userUpdateProfileReducer,
@@ -25,6 +27,8 @@ const rootReducers = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userUpdateProfile: userUpdateProfileReducer,
+  userList: userListReducer,
+  userDelete: userDeleteReducer,
   productDetails: productDetailsReducer,
   productDelete: productDeleteReducer,
   productReviewCreate: productReviewCreateReducer,

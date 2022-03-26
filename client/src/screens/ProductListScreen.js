@@ -39,11 +39,11 @@ const ProductListScreen = () => {
   };
   return (
     <div>
-      <Container className="mt-4">
+      <Container className="mt-4" >
         <Button className="btn btn-primary" onClick={handleBack}>
           GO BACK
         </Button>
-        <Row className="align-items-center" mt-3>
+        <Row className="align-items-center mt-4" mt-3>
           <Col>
             <h3>Product List</h3>
           </Col>

@@ -14,6 +14,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import SidebarScreen from "./screens/SidebarScreen";
 import OnlyAdmin from "./components/OnlyAdmin";
 import ProductListScreen from "./screens/ProductListScreen";
+import UserListScreen from "./screens/UserListScreen";
 // import ListOrderUser from "./screens/ListOrderUser";
 
 function App() {
@@ -58,6 +59,10 @@ function App() {
 
           <Route path="/order/:id" element={<ProtectedRoute />}>
             <Route path="/order/:id" element={<OrderScreen />} />
+          </Route>
+
+          <Route path="/admin/users" element={<OnlyAdmin />} >
+            <Route path="/admin/users" element={<UserListScreen />} />
           </Route>
 
           <Route path="/admin/products" element={<OnlyAdmin />}>

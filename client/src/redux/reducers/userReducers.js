@@ -81,3 +81,60 @@ export const userUpdateProfileReducer = (state = {}, action) => {
       return state;
   }
 }
+
+
+// User List Reducer
+export const userListReducer = (state = {users: []}, action) => {
+  switch (action.type) {
+    case actions.USER_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+    case actions.USER_LIST_SUCCESS:
+      return{
+        ...state,
+        loading: false,
+        users: action.payload
+      }
+    case actions.USER_LIST_FAIL:
+      return{
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    case actions.USER_LIST_RESET:
+      return{
+        ...state,
+        users: []
+      }
+    default:
+      return state;
+  }
+}
+
+
+// User delete reducer
+export const userDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case actions.USER_DELETE_REQUEST:
+      return{
+        ...state,
+        loading: true
+      }
+    case actions.USER_DELETE_SUCCESS:
+      return{
+        ...state,
+        loading: false,
+        success: true
+      }
+    case actions.USER_DELETE_FAIL:
+      return{
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    default:
+      return state;
+  }
+}
