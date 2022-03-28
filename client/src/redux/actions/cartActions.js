@@ -50,3 +50,11 @@ export const savePaymentMethod = (data) => (dispatch) => {
 
     localStorage.setItem("paymentMethod", JSON.stringify(data))
 }
+
+// Reset Cart
+export const cartReset = () => (dispatch) => {
+    dispatch({
+      type: actions.CART_RESET,
+    });
+    localStorage.removeItem("cartItems");
+  };

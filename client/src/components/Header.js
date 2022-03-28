@@ -32,7 +32,7 @@ const Header = () => {
         <Container fluid style={{ height: 60, width: "94%", color: "black" }}>
           <Link to="/">
             <Navbar.Brand>
-              <b>Okdi Food</b>
+              <b>Okdi Cart</b>
             </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />

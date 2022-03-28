@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import Product from "../components/Product";
+// import ProductBukuTerbaru from "../components/ProductBukuTerbaru";
 import { listProduct } from "../redux/actions/productActions";
 import BannerScreen from "./BannerScreen";
 
@@ -48,6 +49,7 @@ const HomeScreen = () => {
           )}
         </Row>
       </Container>
+      {/* <ProductBukuTerbaru /> */}
     </div>
   );
 };

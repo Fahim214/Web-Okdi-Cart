@@ -16,6 +16,8 @@ import OnlyAdmin from "./components/OnlyAdmin";
 import ProductListScreen from "./screens/ProductListScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
+// import ProductDuaScreen from "./screens/ProductDuaScreen";
+// import CartScreenDua from "./screens/CartScreenDua";
 // import ListOrderUser from "./screens/ListOrderUser";
 
 function App() {
@@ -26,7 +28,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/product/:id" element={<ProductScreen />} />
+          {/* <Route path="/products/:id" element={<ProductDuaScreen />} /> */}
           <Route path="/cart" element={<CartScreen />} />
+          {/* <Route path="/carts" element={<CartScreenDua />} /> */}
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/search/:keyword" element={<HomeScreen />} />

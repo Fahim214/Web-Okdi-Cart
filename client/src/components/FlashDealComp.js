@@ -5,12 +5,13 @@ import { listProduct } from "../redux/actions/productActions";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
+import CountDownTime from "./CountDownTime";
 
 const FlashDealComp = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
-  const { products, loading, error } = productList;
+  const { products } = productList;
 
   useEffect(() => {
     dispatch(listProduct());
@@ -35,7 +36,7 @@ const FlashDealComp = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -43,7 +44,7 @@ const FlashDealComp = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -55,7 +56,7 @@ const FlashDealComp = () => {
       <Container fluid style={{width: "93%"}} className="py-5">
         <Row>
           <Col md={3}>
-            <Row style={{alignItems: "center", color: "white"}}>
+            <Row style={{alignItems: "center"}}>
               <Col md={3}>
                 <img src="https://s0.bukalapak.com/baseplate/flashdeal-ico-v2.svg" alt="" />
               </Col>
@@ -64,10 +65,11 @@ const FlashDealComp = () => {
               </Col>
             </Row>
             <br />
-            <h6>Berakhir Dalam ....</h6>
+            <h6>Berakhir Dalam <CountDownTime /></h6>
             <br />
+            <h2><b>Diskon tiap hari sampai 70%</b></h2>
             <br />
-            <h2>Diskon tiap hari sampai 70%</h2>
+            <p>Mau Menikmati Flash Deal?</p>
           </Col>
           <Col md={9}>
             <Row>

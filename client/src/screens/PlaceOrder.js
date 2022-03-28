@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Message from "../components/Message";
-import { removeFromCart } from "../redux/actions/cartActions";
+import { cartReset, removeFromCart } from "../redux/actions/cartActions";
 import { createOrder } from "../redux/actions/orderAction";
 
 const PlaceOrder = () => {
@@ -55,6 +55,7 @@ const PlaceOrder = () => {
   useEffect(() => {
     if (success) {
       navigate(`/order/${order._id}`);
+      dispatch(cartReset())
     }
   }, [dispatch, success, order?._id, navigate]);
 

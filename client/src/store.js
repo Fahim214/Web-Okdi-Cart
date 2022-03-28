@@ -25,7 +25,6 @@ import {
 } from "./redux/reducers/userReducers";
 
 const rootReducers = combineReducers({
-  productList: productListReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userUpdateProfile: userUpdateProfileReducer,
@@ -33,6 +32,7 @@ const rootReducers = combineReducers({
   userDelete: userDeleteReducer,
   userDetail: userDetailsReducer,
   userUpdate: userUpdateReducer,
+  productList: productListReducer,
   productDetails: productDetailsReducer,
   productDelete: productDeleteReducer,
   productReviewCreate: productReviewCreateReducer,

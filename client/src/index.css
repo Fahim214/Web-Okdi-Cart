@@ -82,9 +82,17 @@ header .navbar-light .navbar-nav .nav-link:hover{
 
 
 .bg{
-  background-image: linear-gradient(-135deg, rgb(136, 196, 231), rgb(67, 137, 181), rgb(3, 94, 169));
+  background-image: linear-gradient(-135deg, rgb(136, 196, 231), rgb(12, 95, 229), rgb(0, 44, 176));
 }
 
 .bg h3,h2,h6{
   color: white;
+}
+
+.all-book{
+  color: blue;
+}
+
+.all-book:hover{
+  text-decoration: underline;
 }
