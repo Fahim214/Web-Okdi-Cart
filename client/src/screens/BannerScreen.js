@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Product from "../components/Product";
-import { listProduct } from "../redux/actions/productActions";
+import { listProduct, listTopProducts } from "../redux/actions/productActions";
 import Message from "../components/Message";
 import { Link } from "react-router-dom";
 import CategoryScreen from "./CategoryScreen"
@@ -45,6 +45,7 @@ const BannerScreen = () => {
 
     useEffect(() => {
         dispatch(listProduct())
+        dispatch(listTopProducts())
     }, [dispatch])
 
   const settings = {

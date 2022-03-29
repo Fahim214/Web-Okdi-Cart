@@ -25,7 +25,7 @@ const HomeScreen = () => {
   }, [dispatch, keyword, pageNumber]);
   return (
     <div>
-      <BannerScreen />
+      {!keyword && <BannerScreen />}
       <Container fluid style={{ width: "93%", marginTop: 60 }}>
         <Row>
           <Col md={10}>
